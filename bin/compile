@@ -51,10 +51,10 @@ unless $?.success?
   exit 1
 end
 
-puts <<-CONF
-config_vars:
-  ORACLE_HOME: "/app/vendor/oracle_instantclient/"
-  LD_LIBRARY_PATH: "/app/vendor/oracle_instantclient/"
-CONF
+#puts <<-CONF
+#config_vars:
+#  ORACLE_HOME: "/app/vendor/oracle_instantclient/"
+#  LD_LIBRARY_PATH: "/app/vendor/oracle_instantclient/"
+#CONF
 
 indent "Done."
