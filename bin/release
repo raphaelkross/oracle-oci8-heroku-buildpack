@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+require 'pathname'
+
 #EXISTING_LD_LIBRARY_PATH = ENV['LD_LIBRARY_PATH']
 #new_ld_library_path = "vendor/oracle_instantclient"
 
@@ -8,16 +10,14 @@
 #end
 
 
+release = Pathname.new(ARGV.first).join("tmp/heroku-buildpack-release-step.yml")
+puts release.read if release.exist?
 
 puts <<-CONF
 config_vars:
-  ORACLE_HOME: "vendor/oracle_instantclient"
-  LD_LIBRARY_PATH: "vendor/oracle_instantclient"
+  ORACLE_HOME: Pathname.new(ARGV.first).join("vendor/oracle_instantclient")
+  LD_LIBRARY_PATH: Pathname.new(ARGV.first).join("vendor/oracle_instantclient")
   NLS_LANG: AMERICAN_AMERICA.UTF8
 CONF
 
 
-require 'pathname'
-
-release = Pathname.new(ARGV.first).join("tmp/heroku-buildpack-release-step.yml")
-puts release.read if release.exist?
