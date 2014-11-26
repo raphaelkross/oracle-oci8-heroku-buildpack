@@ -33,6 +33,10 @@ indent "Making folders..."
 indent "Downloading and extracting archives from #{S3BUCKET}..."
 result = `curl #{OCI8_TGZ} -s -o - | tar -xz -C #{OCI8_SO_DIR} -f - `
 
+indent "Downloading and extracting archives from #{S3BUCKET}..."
+result = `curl https://s3-us-west-2.amazonaws.com/public-devato/instantclient_12_1.zip -s -o - | unzip #{ORACLE_INSTANT_CLIENT_DIR}`
+
+
 unless $?.success?
   indent "Failure while downloading OCI8 archive: #{$?}"
   exit 1
