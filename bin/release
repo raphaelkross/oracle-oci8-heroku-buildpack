@@ -1,5 +1,5 @@
-#!/usr/bin/env ruby
-
+#!/usr/bin/env bash
+# bin/release <build-dir>
 #require 'pathname'
 
 #EXISTING_LD_LIBRARY_PATH = ENV['LD_LIBRARY_PATH']
