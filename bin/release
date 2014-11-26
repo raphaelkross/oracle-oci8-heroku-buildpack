@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 # bin/release <build-dir>
 
-#require 'pathname'
-
 #EXISTING_LD_LIBRARY_PATH = ENV['LD_LIBRARY_PATH']
 #new_ld_library_path = "vendor/oracle_instantclient"
 
@@ -10,22 +8,12 @@
 #  new_ld_library_path = EXISTING_LD_LIBRARY_PATH + ":" + new_ld_library_path
 #end
 
-
-#release = Pathname.new(ARGV.first).join("tmp/heroku-buildpack-release-step.yml")
-#puts release.read if release.exist?
-
-cat <<EOF
----
+BUILD_DIR=${1}
+puts <<-CONF
 config_vars:
-ORACLE_HOME: vendor/oracle_instantclient
-LD_LIBRARY_PATH: vendor/oracle_instantclient
-EOF
-
-#puts <<-CONF
-#config_vars:
-#  ORACLE_HOME: Pathname.new(ARGV.first).join("vendor/oracle_instantclient")
-#  LD_LIBRARY_PATH: Pathname.new(ARGV.first).join("vendor/oracle_instantclient")
-#  NLS_LANG: AMERICAN_AMERICA.UTF8
-#CONF
+  ORACLE_HOME: ${BUILD_DIR}/vendor/oracle_instantclient
+  LD_LIBRARY_PATH: ${BUILD_DIR}/vendor/oracle_instantclient
+  NLS_LANG: AMERICAN_AMERICA.UTF8
+CONF
 
 
