@@ -45,4 +45,7 @@ unless $?.success?
   exit 1
 end
 
+export ORACLE_HOME=vendor/oracle_instantclient
+export LD_LIBRARY_PATH=vendor/oracle_instantclient
+
 indent "Done."
