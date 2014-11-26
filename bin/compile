@@ -34,7 +34,7 @@ indent "Downloading and extracting archives from #{S3BUCKET}..."
 result = `curl #{OCI8_TGZ} -s -o - | tar -xz -C #{OCI8_SO_DIR} -f - `
 
 indent "Downloading and extracting archives from AWS..."
-result = `cd #{ORACLE_INSTANT_CLIENT_DIR}; wget https://s3-us-west-2.amazonaws.com/public-devato/instantclient_12_1.zip | unzip instantclient_12_1.zip`
+result = `cd #{ARGV[0]}/vendor; wget https://s3-us-west-2.amazonaws.com/public-devato/instantclient_12_1.zip; unzip instantclient_12_1.zip`
 
 
 unless $?.success?
