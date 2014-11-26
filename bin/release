@@ -8,6 +8,7 @@
 #end
 
 BUILD_DIR=${1}
+
 puts <<-CONF
 config_vars:
   ORACLE_HOME: ${BUILD_DIR}/vendor/oracle_instantclient
