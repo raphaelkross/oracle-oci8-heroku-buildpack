@@ -9,6 +9,7 @@ end
 
 puts <<-CONF
 config_vars:
+  ORACLE_HOME: #{new_ld_library_path}
   LD_LIBRARY_PATH: #{new_ld_library_path}
   NLS_LANG: AMERICAN_AMERICA.UTF8
 CONF
