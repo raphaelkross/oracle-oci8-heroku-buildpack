@@ -9,11 +9,12 @@
 
 BUILD_DIR=${1}
 
-puts <<-CONF
+cat <<EOF
+---
 config_vars:
-  ORACLE_HOME: ${BUILD_DIR}/vendor/oracle_instantclient
-  LD_LIBRARY_PATH: ${BUILD_DIR}/vendor/oracle_instantclient
-  NLS_LANG: AMERICAN_AMERICA.UTF8
-CONF
+ORACLE_HOME: ${BUILD_DIR}/vendor/oracle_instantclient
+LD_LIBRARY_PATH: ${BUILD_DIR}/vendor/oracle_instantclient
+NLS_LANG: AMERICAN_AMERICA.UTF8
+EOF
 
 
