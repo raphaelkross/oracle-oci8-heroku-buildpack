@@ -11,28 +11,6 @@ end
 
 puts "-----> Found a .oracle.ini"
 
-RUBY=`which ruby`
-
-S3BUCKET="https://s3.amazonaws.com/chameleon-heroku-assets"
-OCI8_TGZ="#{S3BUCKET}/ruby-2.0.0-oci8.tar.gz"
-ORACLE_INSTANT_CLIENT_TGZ="#{S3BUCKET}/instantclient_11_2_with_libaio_oci8.tar.gz"
-
-BUILD_DIR="#{ARGV[0]}/oracle_oci8"
-OCI8_DIR="#{ARGV[0]}/vendor/oci8"
-version = `cat #{ARGV[0]}/.ruby-version`
-version = 'ruby-2.0.0' if version.nil?
-OCI8_SO_DIR="#{ARGV[0]}/vendor/#{version}/" 
-
-ORACLE_INSTANT_CLIENT_DIR="#{ARGV[0]}/vendor/oracle_instantclient"
-
-indent "Making folders..."
-`mkdir -p #{OCI8_SO_DIR}`
-`mkdir -p #{OCI8_DIR}`
-`mkdir -p #{ORACLE_INSTANT_CLIENT_DIR}`
-
-indent "Downloading and extracting archives from #{S3BUCKET}..."
-#result = `curl #{OCI8_TGZ} -s -o - | tar -xz -C #{OCI8_SO_DIR} -f - `
-
 indent "Downloading file from AWS..."
 result = `cd #{ARGV[0]}/vendor; wget -quiet https://s3-us-west-2.amazonaws.com/public-devato/instantclient_12_1.zip`
 
@@ -41,13 +19,6 @@ result = `cd #{ARGV[0]}/vendor; unzip instantclient_12_1.zip; cd instantclient_1
 
 unless $?.success?
   indent "Failure while downloading OCI8 archive: #{$?}"
-  exit 1
-end
-
-result = `curl #{ORACLE_INSTANT_CLIENT_TGZ} -s -o - | tar -xz -C #{ORACLE_INSTANT_CLIENT_DIR} -f - `
-
-unless $?.success?
-  indent "Failure while downloading Oracle instant client archive: #{$?}"
   exit 1
 end
 
