@@ -1,8 +1,12 @@
 #!/bin/sh
-echo "Installing OCI8 V2..."
+echo "Installing OCI8 V3..."
+echo $1
 
 ORACLE_HOME=$1/vendor/instantclient_12_1
 LD_LIBRARY_PATH=$1/vendor/instantclient_12_1
 NLS_LANG=AMERICAN_AMERICA.UTF8
+
+echo $ORACLE_HOME
+echo $LD_LIBRARY_PATH
 
 pecl install oci8
