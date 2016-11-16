@@ -22,9 +22,8 @@ unless $?.success?
   exit 1
 end
 
-
 indent "Installing OCI8..."
-result = `pecl install oci8`
+system 'pecl install oci8'
 
 puts <<-CONF
 config_vars:
