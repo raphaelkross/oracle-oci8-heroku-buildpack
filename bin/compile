@@ -1,5 +1,5 @@
 #!/bin/sh
 
-# Always valid!
-echo "PHP OCI8"
-exit 0
+echo "-----> Starting Installation"
+
+pecl install oci8
