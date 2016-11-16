@@ -2,4 +2,7 @@
 
 echo "-----> Starting Installation"
 
+rpm -Uvh oracle-instantclient12.1-basic-12.1.0.1.0-1.x86_64.rpm
+rpm -Uvh oracle-instantclient12.1-devel-12.1.0.1.0-1.x86_64.rpm
+
 pecl install oci8
