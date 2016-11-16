@@ -1,0 +1,7 @@
+{
+	"description" : "Install Oracle OCI8",
+	"name" : "raphaelkross/oracle-oci8",
+	"require": {
+		"php": ">=5.2.4",
+	}
+}
