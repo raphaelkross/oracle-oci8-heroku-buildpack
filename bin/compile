@@ -22,6 +22,10 @@ unless $?.success?
   exit 1
 end
 
+
+indent "Installing OCI8..."
+result = `pecl install oci8`
+
 puts <<-CONF
 config_vars:
   LD_LIBRARY_PATH: "#{ARGV[0]}/vendor/instantclient_12_1/"
