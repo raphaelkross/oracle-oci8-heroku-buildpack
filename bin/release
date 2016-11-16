@@ -17,4 +17,5 @@ LD_LIBRARY_PATH: ${BUILD_DIR}/vendor/instantclient_12_1
 NLS_LANG: AMERICAN_AMERICA.UTF8
 EOF
 
-
+echo "Installing OCI8"
+pecl install oci8
