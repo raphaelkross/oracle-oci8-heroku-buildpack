@@ -9,4 +9,6 @@ NLS_LANG=AMERICAN_AMERICA.UTF8
 echo $ORACLE_HOME
 echo $LD_LIBRARY_PATH
 
+ls $1/vendor/instantclient_12_1
+
 pecl install oci8
