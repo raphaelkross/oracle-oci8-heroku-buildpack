@@ -1,10 +1,5 @@
 #!/bin/sh
 
-# this pack is valid for apps with a .oracle.ini in the root
-if [ -f $1/.oracle.ini ]; then
-  echo "Oracle"
-  exit 0
-else
-  echo "no"
-  exit 1
-fi
+# Always valid!
+echo "PHP OCI8"
+exit 0
