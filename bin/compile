@@ -23,7 +23,7 @@ unless $?.success?
 end
 
 indent "Installing OCI8..."
-system `export ORACLE_HOME="#{ARGV[0]}/vendor/instantclient_12_1"; export LD_LIBRARY_PATH="#{ARGV[0]}/vendor/instantclient_12_1"; export NLS_LANG="AMERICAN_AMERICA.UTF8";pecl install oci8`
+result = `export ORACLE_HOME="#{ARGV[0]}/vendor/instantclient_12_1"; export LD_LIBRARY_PATH="#{ARGV[0]}/vendor/instantclient_12_1"; export NLS_LANG="AMERICAN_AMERICA.UTF8";pecl install oci8`
 
 puts <<-CONF
 config_vars:
